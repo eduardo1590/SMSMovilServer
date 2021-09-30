@@ -10,8 +10,8 @@ export const environment = {
     projectId: "smsmovilservice",
     storageBucket: "smsmovilservice.appspot.com",
     messagingSenderId: "584146442503",
-    appId: "1:584146442503:web:d48e4ed1e8f4471e714da2",
-    measurementId: "G-WR1MXM4B0E"
+    appId: "1:584146442503:web:a61c638dfec23b5e714da2",
+    measurementId: "G-4P1CE3XF85"
   }
 };
 

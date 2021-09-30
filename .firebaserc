@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "smsmovilservice": {
+      "hosting": {
+        "app": [
+          "smsmovilservice"
+        ]
+      }
+    }
+  }
+}
