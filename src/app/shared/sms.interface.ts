@@ -1,4 +1,4 @@
-export interface SMS{
+export interface SMSi{
     uid?: string;
     ani: string;
     text: string;

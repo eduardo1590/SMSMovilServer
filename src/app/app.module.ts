@@ -10,12 +10,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore} from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 
+import { SMS } from '@ionic-native/sms/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
             AngularFireModule.initializeApp(environment.firebase)],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AngularFirestore],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+                , AngularFirestore, SMS],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
