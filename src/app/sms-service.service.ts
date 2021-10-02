@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SMS } from './shared/sms.interface';
+import { SMSi } from './shared/sms.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SmsServiceService {
-  sms: Observable<SMS[]>;
+  sms: Observable<SMSi[]>;
 
-  private smsCollection: AngularFirestoreCollection<SMS>;
+  private smsCollection: AngularFirestoreCollection<SMSi>;
 
   constructor(private readonly afs: AngularFirestore) {
-    this.smsCollection = afs.collection<SMS>('sms');
+    this.smsCollection = afs.collection<SMSi>('sms');
     this.getSMS();
    }
 
-   onSaveSms(text: SMS, smsId:string): Promise<void>{
+   onSaveSms(text: SMSi, smsId:string): Promise<void>{
      return new Promise( async (resolve, reject) => {
        try{
         const id = smsId || this.afs.createId();
@@ -32,7 +32,7 @@ export class SmsServiceService {
 
    private getSMS(): void{
      this.sms = this.smsCollection.snapshotChanges().pipe(
-       map(actions => actions.map(a => a.payload.doc.data() as SMS))
+       map(actions => actions.map(a => a.payload.doc.data() as SMSi))
      )
    }
 }
