@@ -12,17 +12,16 @@ declare var SMSReceive: any;
 })
 export class HomePage {
   constructor(private smsService: SmsServiceService, private sms: SMS) {
-    /*let sms = {
+    /*let message = {
     ani: "04242462125",
     text: "esto es una prueba",
     date: new Date()};
     
-    this.saveSms(sms);*/
-
-    
+    this.saveSms(message);*/
   }
 
   ngOnInit() {
+     //this.sms.send(client, "Recibido");
     SMSReceive.startWatch(
       () =>{
         console.log('Esperando Mensajes');
@@ -41,16 +40,16 @@ export class HomePage {
   }
 
   processSMS(data: any){
-    const message = data.body;
-    const client = data.address;
-
-    let sms = {
-      ani: client,
-      text: message,
-      date: new Date()
-    };
-      
-      this.saveSms(sms);
+      const message = data.body;
+      const client = data.address;
+  
+      let sms = {
+        ani: client,
+        text: message,
+        date: new Date()
+      };
+        //this.sms.send(client, "Recibido");
+       this.saveSms(sms);
   }
 
 }
